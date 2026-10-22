@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plain Video Player · FireSense</title>
+    <meta name="description" content="A player with no framework that integrates FireSense through FireSenseViewer." />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">▶</span>
+        <span class="name">Plain Player</span>
+        <span class="tag">FireSense integration example</span>
+      </div>
+      <div class="chips">
+        <span id="chip-test" class="chip chip-test" hidden>Test input · not recorded</span>
+        <span id="chip-shadow" class="chip chip-quiet" hidden>Record only</span>
+        <button id="chip-link" class="chip chip-link" data-state="connecting" type="button" title="Show the pairing QR (Enter)">
+          <span class="dot" aria-hidden="true"></span>
+          <span id="link-text">Connecting…</span>
+        </button>
+        <span id="chip-stars" class="chip chip-stars" aria-live="polite">
+          <span class="star" aria-hidden="true">★</span>
+          <span id="stars">0</span>
+        </span>
+      </div>
+    </header>
+
+    <main class="stage">
+      <div class="screen">
+        <video id="video" src="/videos/cartoon.mp4" autoplay muted loop playsinline controls></video>
+        <div id="burst" class="burst" aria-hidden="true">★</div>
+      </div>
+      <p class="caption">
+        The phone decides; this page only draws. Blur comes from <code>frame.blurPx</code>, the star from
+        <code>event</code>. When the sensor drops, the picture clears and the badge says so.
+      </p>
+    </main>
+
+    <aside id="pair" class="pair" hidden>
+      <div class="pair-card" role="dialog" aria-labelledby="pair-title">
+        <div id="qr" class="qr"><span>Preparing…</span></div>
+        <div class="pair-text">
+          <h2 id="pair-title">Connect the watch phone</h2>
+          <p>Scan this code with the phone that sits next to the TV. It opens the FireSense camera page and pairs with this player.</p>
+          <p class="fine">One-time code, refreshed automatically.</p>
+          <div class="pair-actions">
+            <button id="pair-close" type="button">Close</button>
+            <a id="pair-link" target="_blank" rel="noopener">Open the pairing link</a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div id="toast" class="toast" role="alert" hidden></div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+FROM python:3.11-slim
+RUN apt-get update && apt-get install -y --no-install-recommends libgl1 libglib2.0-0 libegl1 libgles2 curl && rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir mediapipe opencv-python-headless numpy
+RUN pip install --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install --no-cache-dir ultralytics
+RUN mkdir /m && cd /m && curl -sSLO https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_heavy/float16/latest/pose_landmarker_heavy.task \
+ && curl -sSLo efficientdet_lite2.tflite https://storage.googleapis.com/mediapipe-models/object_detector/efficientdet_lite2/float32/latest/efficientdet_lite2.tflite \
+ && python -c "from ultralytics import YOLO; [YOLO(m) for m in ('yolo11n-pose.pt','yolo11s-pose.pt','yolo11m-pose.pt')]"

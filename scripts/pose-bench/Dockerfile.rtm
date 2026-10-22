@@ -1,0 +1,2 @@
+FROM firesense-pose-cmp
+RUN pip install --no-cache-dir rtmlib onnxruntime

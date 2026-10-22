@@ -1,0 +1,81 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+
+# Misc
+.DS_Store
+*.pem
+__pycache__/
+*.pyc
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment variables
+.env*.local
+.env
+*.json.key
+hackathon-*.json
+*-credentials.json
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# AI-generated visual thinker artifacts
+.agents/visuals/
+
+# Build outputs
+infra/terraform/.build/
+infra/lambda/dist/
+public/mediapipe/wasm/
+public/ort/
+.model-cache/
+firetv-app/app/src/main/assets/web/
+firetv-app/.gradle/
+firetv-app/build/
+firetv-app/app/build/
+firetv-app/local.properties
+public/examples/
+
+# Preset videos (downloaded / transcoded by scripts/upload-media.sh; live in S3 media/)
+/.media-cache/
+/scripts/pose-bench/images/
+
+# Raw footage for the demo video (large; may show family members)
+docs/clips/
+
+# Judges zip (Devpost attachment; carries the hosted endpoints)
+dist/

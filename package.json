@@ -1,0 +1,49 @@
+{
+  "name": "firesense-kids",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/sync-mediapipe.mjs && node scripts/sync-ort.mjs && node scripts/build-example.mjs && next dev --port 3000",
+    "build": "node scripts/sync-mediapipe.mjs && node scripts/sync-ort.mjs && node scripts/build-example.mjs && next build",
+    "build:lambda": "node infra/lambda/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run tests",
+    "test:watch": "vitest tests",
+    "build:example": "node scripts/build-example.mjs"
+  },
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.750.0",
+    "@mediapipe/tasks-vision": "^1.0.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.16.0",
+    "next": "^15.1.0",
+    "onnxruntime-web": "^1.30.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-apigatewaymanagementapi": "^3.1138.0",
+    "@aws-sdk/client-dynamodb": "^3.1138.0",
+    "@aws-sdk/lib-dynamodb": "^3.1138.0",
+    "@types/aws-lambda": "^8.10.163",
+    "@types/node": "^22.0.0",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
+    "esbuild": "^0.24.2",
+    "jpeg-js": "^0.4.4",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.8"
+  },
+  "browserslist": [
+    "chrome >= 61",
+    "safari >= 14",
+    "ios_saf >= 14"
+  ]
+}
